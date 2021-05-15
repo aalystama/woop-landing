@@ -137,11 +137,7 @@ const InfoListLink = styled.a`
 `;
 
 export default styled(Footer)`
-  position: absolute;
   margin-top: auto;
   padding: 24px;
-  left: 0;
-  bottom: 0;
-  right: 0;
   background-color: ${Colors.FOOTER_BLACK};
 `;

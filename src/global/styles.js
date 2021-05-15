@@ -46,7 +46,7 @@ export const Device = {
 };
 
 export const GlobalStyle = createGlobalStyle`
-    ${normalize}
+    ${normalize};
 
     @font-face {
       font-style: normal;
@@ -62,6 +62,12 @@ export const GlobalStyle = createGlobalStyle`
       font-family: "Gilroy";
       src: url(${GilroySemiboldWoff2}) format("woff2"),
       url(${GilroySemiboldWoff}) format("woff");
+    }
+
+    * {
+      font-family: "Gilroy";
+      font-style: normal;
+      font-weight: normal;
     }
 `;
 
