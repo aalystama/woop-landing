@@ -29,6 +29,10 @@ const Footer = ({ className: c }) => {
           <InfoListLink href="#/">Условия оплаты</InfoListLink>
         </li>
       </InfoList>
+      <StoreBadgesSection>
+        <AppStoreBadge href="/" />
+        <PlayMarketBadge href="/" />
+      </StoreBadgesSection>
     </footer>
   );
 };
@@ -134,6 +138,27 @@ const InfoListLink = styled.a`
     color: ${Colors.WHITE};
     text-decoration: underline;
   }
+`;
+
+const StoreBadgesSection = styled.section`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const AppStoreBadge = styled.a`
+  background-image: url("${require("../assets/app-store-logo.png").default}");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px 70px;
+`;
+
+const PlayMarketBadge = styled.a`
+  background-image: url("${require("../assets/play-market-logo.png").default}");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px 70px;
 `;
 
 export default styled(Footer)`
