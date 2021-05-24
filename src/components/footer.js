@@ -4,165 +4,146 @@ import { Colors, Fonts, sizer } from "../global/styles";
 const Footer = ({ className: c }) => {
   return (
     <footer className={c}>
-      <HeadingFooterSection>
-        <WoopLogoFooter />
-        <CopyrightText>© WOOP, 2021</CopyrightText>
-      </HeadingFooterSection>
-      <InfoList>
-        <InfoListTitle>Контакты</InfoListTitle>
-        <li>
-          <InfoListLink href="tel:#">+7 727 221-23-67</InfoListLink>
-        </li>
-        <li>
-          <InfoListLink href="mailto:ifo@woopapp.com">
-            info@woopapp.com
-          </InfoListLink>
-        </li>
-        <li>Almaty, Dostyk avenue, 180, 8 floor</li>
-      </InfoList>
-      <InfoList>
-        <InfoListTitle>Юр. информация</InfoListTitle>
-        <li>
-          <InfoListLink href="#/">Политика конфиденциальности</InfoListLink>
-        </li>
-        <li>
-          <InfoListLink href="#/">Условия оплаты</InfoListLink>
-        </li>
-      </InfoList>
-      <StoreBadgesSection>
-        <AppStoreBadge href="/" />
-        <PlayMarketBadge href="/" />
-      </StoreBadgesSection>
+      <HeadingSection>
+        <WoopLogo />
+        <Copyright>© WOOP, 2021</Copyright>
+      </HeadingSection>
+      <LinksSection>
+        <LinksSectionTitle>Контакты</LinksSectionTitle>
+        <LinksList>
+          <Link>+7 727 221-23-67</Link>
+          <Link>Info@woopapp.com</Link>
+          <Link>Almaty, Dostyk avenue, 180, 8 floor</Link>
+        </LinksList>
+      </LinksSection>
+      <LinksSection>
+        <LinksSectionTitle>Юр. информация</LinksSectionTitle>
+        <LinksList>
+          <Link>Политика конфиденциальности</Link>
+          <Link>Условия оплаты</Link>
+        </LinksList>
+      </LinksSection>
     </footer>
   );
 };
 
-const HeadingFooterSection = styled.section`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const WoopLogoFooter = styled.div`
+const HeadingSection = styled.section`
   ${sizer(
     css`
-      background-image: url("${require("../assets/woop-logo-footer.png")
-        .default}");
-      background-repeat: no-repeat;
-      background-size: contain;
-      width: 64px;
-      height: 64px;
+      display: flex;
+      justify-content: space-between;
     `,
     css`
-      width: 96px;
-      height: 96px;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
     `,
-    css`
-      width: 96px;
-      height: 96px;
-    `
-  )};
+    css``
+  )}
 `;
 
-const CopyrightText = styled.p`
+const WoopLogo = styled.a`
+  background-image: url("${require("../assets/woop-logo-footer.png").default}");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
   ${sizer(
     css`
-      size: 15px;
+      padding: 32px;
+      margin: 24px;
+    `,
+    css`
+      padding: 48px;
+      margin: 48px 0px;
+    `,
+    css``
+  )}
+`;
+
+const Copyright = styled.p`
+  ${Fonts.FOOTER_WHITE}
+
+  ${sizer(
+    css`
+      font-size: 15px;
       line-height: 28px;
+      margin: 24px;
+      align-self: center;
     `,
     css`
-      size: 16px;
+      font-size: 16px;
       line-height: 24px;
-    `,
-    css`
-      size: 18px;
-      line-height: 28px;
+      margin: 0px;
+      align-self: flex-start;
     `
-  )};
-
-  ${Fonts.FOOTER_WHITE};
+  )}
 `;
 
-const InfoList = styled.ul`
+const LinksSection = styled.section`
+  ${sizer(
+    css`
+      margin: 0px 24px;
+    `,
+    css`
+      margin: 0px;
+    `,
+    css``
+  )}
+`;
+
+const LinksSectionTitle = styled.p`
+  ${Fonts.FOOTER_GRAY}
+
+  ${sizer(css`
+    font-size: 16px;
+    line-height: 28px;
+    margin: 24px 0px;
+  `)}
+`;
+
+const LinksList = styled.ul`
   list-style-type: none;
+  margin: 0px;
   padding: 0px;
-  margin: 0px;
-
-  li {
-    margin-bottom: 16px;
-  }
-
-  ${Fonts.FOOTER_WHITE};
-  ${sizer(
-    css`
-      size: 15px;
-      line-height: 28px;
-    `,
-    css`
-      size: 16px;
-      line-height: 22px;
-    `,
-    css`
-      size: 18px;
-      line-height: 32px;
-    `
-  )};
 `;
 
-const InfoListTitle = styled.p`
-  ${Fonts.FOOTER_GRAY};
-  ${sizer(
-    css`
-      size: 16px;
-      line-height: 24px;
-    `,
-    css`
-      size: 16px;
-      line-height: 24px;
-    `,
-    css`
-      size: 16px;
-      line-height: 24px;
-    `
-  )};
-
-  margin: 0px;
-  margin-top: 48px;
-  margin-bottom: 24px;
-`;
-
-const InfoListLink = styled.a`
-  color: ${Colors.WHITE};
+const Link = styled.li`
+  ${Fonts.FOOTER_WHITE}
   text-decoration: none;
 
   &:hover {
-    color: ${Colors.WHITE};
     text-decoration: underline;
   }
-`;
 
-const StoreBadgesSection = styled.section`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const AppStoreBadge = styled.a`
-  background-image: url("${require("../assets/app-store-logo.png").default}");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 20px 70px;
-`;
-
-const PlayMarketBadge = styled.a`
-  background-image: url("${require("../assets/play-market-logo.png").default}");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 20px 70px;
+  ${sizer(
+    css`
+      font-size: 15px;
+      line-height: 28px;
+      &:not(:last-child) {
+        margin: 16px 0px;
+      }
+    `,
+    css`
+      &:not(:last-child) {
+        margin: 24px 0px;
+      }
+    `
+  )}
 `;
 
 export default styled(Footer)`
-  margin-top: auto;
-  padding: 24px;
-  background-color: ${Colors.FOOTER_BLACK};
+  ${sizer(
+    css`
+      background-color: ${Colors.FOOTER_BLACK};
+    `,
+    css`
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 64px;
+    `,
+    css`
+      padding: 0px 140px;
+    `
+  )}
 `;
